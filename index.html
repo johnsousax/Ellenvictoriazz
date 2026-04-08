@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aguarde um momento...</title>
+    <style>
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #25d366;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .footer-text {
+            position: absolute;
+            bottom: 20px;
+            font-size: 10px;
+            color: #999;
+            width: 90%;
+            line-height: 1.4;
+        }
+        a { color: #999; text-decoration: none; }
+    </style>
+
+    <script>
+        // Configurações do Redirecionamento
+        const config = {
+            numero: "5561982319771",
+            mensagem: "Vim garantir o meu conteúdo vip",
+            atraso: 800 // Tempo em milissegundos (0.8 segundos)
+        };
+
+        function iniciarRedirecionamento() {
+            const urlFinal = `https://api.whatsapp.com/send?phone=${config.numero}&text=${encodeURIComponent(config.mensagem)}`;
+            
+            setTimeout(() => {
+                window.location.replace(urlFinal);
+            }, config.atraso);
+        }
+
+        window.onload = iniciarRedirecionamento;
+    </script>
+</head>
+<body>
+
+    <div class="loader"></div>
+    <div style="font-size: 18px; font-weight: 500;">Verificando segurança da conexão...</div>
+    <p style="font-size: 14px; color: #666;">Você será redirecionado para o WhatsApp em instantes.</p>
+
+    <div class="footer-text">
+        <p>Este site não faz parte do site do Facebook ou do Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira. FACEBOOK é uma marca comercial da FACEBOOK, Inc.</p>
+        <p>
+            <a href="#">Termos de Uso</a> | 
+            <a href="#">Políticas de Privacidade</a> | 
+            <a href="#">Contato</a>
+        </p>
+        <p>&copy; 2026 - Todos os direitos reservados.</p>
+    </div>
+
+</body>
+</html>
